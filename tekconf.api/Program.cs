@@ -19,6 +19,8 @@ namespace tekconf.api
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseKestrel()
+                .UseUrls($"http://+:5000")
                 .UseApplicationInsights()
                 .UseStartup<Startup>()
                 .Build();
